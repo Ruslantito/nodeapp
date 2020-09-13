@@ -215,7 +215,7 @@ methods.set('/posts.restore', async ({response, searchParams, db}) => {
     sendResponse(response, {status: statusBadRequest});
     return;
   }
-
+  
   const table = await db.getTable('posts');
   const result = await table.update()
     .set('removed', 0)
