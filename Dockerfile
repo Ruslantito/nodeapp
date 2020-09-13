@@ -16,11 +16,11 @@ RUN mkdir /var/run/mysqld && \
     chmod 750 /opt/mysql/mysql/data && \
     mysqld --initialize-insecure --user=mysql --basedir=/opt/mysql/mysql --datadir=/opt/mysql/mysql/data --init_file=/tmp/init.sql
 
-COPY ./*.sh ./app/ 
+COPY ./*.sh ./app/
 RUN chmod +x ./app/*.sh
 
 WORKDIR /app
-COPY ./*.js /app/
+COPY ./*.js* /app/
 RUN npm install
 
 EXPOSE 9999
